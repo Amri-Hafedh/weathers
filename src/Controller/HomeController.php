@@ -32,6 +32,7 @@ class HomeController extends AbstractController
         // $output contains the output string
     	$output = curl_exec($ch);
     	$json = json_decode($output);
+    	//echo "<pre>"; var_dump( $json); die;
     	$weather = 10;
         // close curl resource to free up system resources
     	curl_close($ch);
@@ -40,7 +41,8 @@ class HomeController extends AbstractController
     		'controller_name' => 'HomeController',
     		'cityName' => 'Paris',
     		'temperature'=>$weather,
-    		'humidity' => $json->list[0]->main->humidity
+    		'humidity' => $json->list[0]->main->humidity,
+    		'temp'=>$json->list[0]->main->temp
     	]);
     }
 }
