@@ -1,14 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}API Météo Symfony !{% endblock %}
 
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .tab { border: 1px solid #333;}
 </style>
 
-{#<div class="example-wrapper">
+{#
+<div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
 
     This friendly message is coming from:
@@ -16,11 +18,28 @@
         <li>Your controller at <code><a href="{{ 'C:/work/workspace/weathers/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
         <li>Your template at <code><a href="{{ 'C:/work/workspace/weathers/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
     </ul>
-</div>#}
-    <h1>Ma ville est: {{ cityName }}! ✅</h1>
-    la température est : {{temperature}} <br/>
-    Humidity : {{ humidity }}<br/>
-    temps : {{temp}}
+</div>
+#}
+
+    
+<h1>Ma ville est: {{ cityName }}! ✅</h1>
+    
+<table class="tab">
+    <tbody>
+    <tr>
+    <td>la température est : </td>
+    <td>{{temperature}}</td>
+    </tr>
+    <tr>
+    <td>Humidity :</td>
+    <td> {{ humidity }}</td>
+    </tr>
+    <tr>
+    <td>temps : </td>
+    <td>{{temp}}</td>
+    </tr>
+    </tbody>
+</table>
 
 
 {% endblock %}
