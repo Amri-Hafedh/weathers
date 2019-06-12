@@ -33,6 +33,7 @@ class HomeController extends AbstractController
     	$output = curl_exec($ch);
     	$json = json_decode($output);
     	//echo "<pre>"; var_dump( $json); die;
+
     	$weather = 10;
         // close curl resource to free up system resources
     	curl_close($ch);
