@@ -21,25 +21,26 @@ class HomeController extends AbstractController
 
 
 // create curl resource
-        $ch = curl_init();
+    	$ch = curl_init();
 
         // set url
-        curl_setopt($ch, CURLOPT_URL, "api.openweathermap.org/data/2.5/forecast?appid=4a54e92223fcb90872ffb5de0f41234b&id=6455259");
+    	curl_setopt($ch, CURLOPT_URL, "api.openweathermap.org/data/2.5/forecast?appid=4a54e92223fcb90872ffb5de0f41234b&id=6455259");
 
         //return the transfer as a string
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
         // $output contains the output string
-        $output = curl_exec($ch);
-        $json = json_decode($output);
-echo "<pre>";var_dump($json); die;
+    	$output = curl_exec($ch);
+    	$json = json_decode($output);
+    	$weather = 10;
         // close curl resource to free up system resources
-        curl_close($ch);
+    	curl_close($ch);
 
-        return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
-            'cityName' => 'Paris',
-            'temperature'=>$weather->temperature
-        ]);
+    	return $this->render('home/index.html.twig', [
+    		'controller_name' => 'HomeController',
+    		'cityName' => 'Paris',
+    		'temperature'=>$weather,
+    		'humidity' => $json->list[0]->main->humidity
+    	]);
     }
 }
